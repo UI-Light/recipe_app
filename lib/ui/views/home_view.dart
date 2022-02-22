@@ -1,10 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipe_app/ui/foods_view.dart';
+import 'package:recipe_app/ui/views/foods_view.dart';
 
-class Homepage extends StatelessWidget {
-  const Homepage({Key? key}) : super(key: key);
+class HomeView extends StatelessWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,18 +49,20 @@ class Homepage extends StatelessWidget {
                     );
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 20),
                     height: 60,
-                    width: 130,
+                    width: 150,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
                       color: Colors.green,
                     ),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
-                          Icons.arrow_circle_right,
+                          Icons.arrow_forward,
+                          size: 30,
                           color: Colors.white,
                         ),
                         Text(

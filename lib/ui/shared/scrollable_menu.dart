@@ -11,8 +11,9 @@ class ScrollableMenu extends StatefulWidget {
 }
 
 class _ScrollableMenuState extends State<ScrollableMenu> {
-  int selected = 0;
+  int selected = 0; //here this selected = 0 is the index
   void selectMenu(int index) {
+    //selectMenu takes a parameter index and it sets that index to selected
     setState(() {
       selected = index;
     });

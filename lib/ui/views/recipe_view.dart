@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recipe_app/ui/shared/recipe_list.dart';
 
 class RecipeView extends StatelessWidget {
   const RecipeView({Key? key}) : super(key: key);
@@ -80,23 +81,42 @@ class RecipeView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
-              Card(
-                color: const Color(0x0db3bbd2),
-                child: ListTile(
-                  leading: const Image(
-                    image: AssetImage('asset/matcha.jpg'),
-                    height: 40,
-                    width: 40,
-                  ),
-                  title: Text(
-                    'Matcha',
-                    style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  trailing: const Text(
-                    '1 teaspoon',
-                    style: TextStyle(color: Colors.grey),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: const [
+                      RecipeList(
+                        ingredientName: 'Matcha',
+                        measurement: '1 teaspoon',
+                        ingredientImage: AssetImage('asset/matcha.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                      RecipeList(
+                        ingredientName: 'Matcha',
+                        measurement: '1 teaspoon',
+                        ingredientImage: AssetImage('asset/matcha.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                      RecipeList(
+                        ingredientName: 'Matcha',
+                        measurement: '1 teaspoon',
+                        ingredientImage: AssetImage('asset/matcha.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                      RecipeList(
+                        ingredientName: 'Matcha',
+                        measurement: '1 teaspoon',
+                        ingredientImage: AssetImage('asset/matcha.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                      RecipeList(
+                        ingredientName: 'Matcha',
+                        measurement: '1 teaspoon',
+                        ingredientImage: AssetImage('asset/matcha.jpg'),
+                      ),
+                      SizedBox(height: 10),
+                    ],
                   ),
                 ),
               ),

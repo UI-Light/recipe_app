@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
   final String text;
-  final bool selected;
-  final VoidCallback selectMenu;
+  final bool selected; //here the menu takes a property selected of type bool
+  final VoidCallback
+      selectMenu; //selectMenu is of type function or VoidCallBack
 
   const Menu(
       {Key? key,

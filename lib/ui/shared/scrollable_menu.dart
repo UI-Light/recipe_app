@@ -1,23 +1,13 @@
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 import 'package:recipe_app/ui/shared/menu.dart';
 
-class ScrollableMenu extends StatefulWidget {
-  const ScrollableMenu({Key? key}) : super(key: key);
-
-  @override
-  _ScrollableMenuState createState() => _ScrollableMenuState();
-}
-
-class _ScrollableMenuState extends State<ScrollableMenu> {
-  int selected = 0; //here this selected = 0 is the index
-  void selectMenu(int index) {
-    //selectMenu takes a parameter index and it sets that index to selected
-    setState(() {
-      selected = index;
-    });
-  }
+class ScrollableMenu extends StatelessWidget {
+  final int selected;
+  final Function(int)
+      selectMenu; //here we are not calling the method...we are only defining it as a property of our class hence no parenthesis after 'selectMenu
+  const ScrollableMenu(
+      {Key? key, required this.selected, required this.selectMenu})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

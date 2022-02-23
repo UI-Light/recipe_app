@@ -11,6 +11,14 @@ class FoodsView extends StatefulWidget {
 }
 
 class _FoodsViewState extends State<FoodsView> {
+  int selected = 0; //here this selected = 0 is the index
+  void selectMenu(int index) {
+    //selectMenu takes a parameter index and it sets that index to selected
+    setState(() {
+      selected = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +82,12 @@ class _FoodsViewState extends State<FoodsView> {
                 ],
               ),
               const SizedBox(height: 25),
-              const ScrollableMenu(),
+              ScrollableMenu(
+                selected: selected,
+                selectMenu: (selectedIndex) {
+                  selectMenu(selectedIndex);
+                },
+              ),
               const SizedBox(height: 25),
               GestureDetector(
                 onTap: () {
@@ -124,7 +137,7 @@ class _FoodsViewState extends State<FoodsView> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

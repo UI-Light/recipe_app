@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recipe_app/ui/shared/recipe_list.dart';
+import 'package:recipe_app/models/recipe.dart';
 
 class RecipeView extends StatelessWidget {
-  const RecipeView({Key? key}) : super(key: key);
+  final Recipe recipe;
+  const RecipeView({Key? key, required this.recipe}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +19,17 @@ class RecipeView extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(
-                    Icons.arrow_back,
+                  IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back,
+                    ),
                     color: Colors.grey,
                   ),
                   Text(
-                    'Salmon Sushi',
+                    recipe.nameOfFood,
                     style: GoogleFonts.roboto(
                         fontWeight: FontWeight.bold, fontSize: 18),
                   ),
@@ -37,8 +44,8 @@ class RecipeView extends StatelessWidget {
                 height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  image: const DecorationImage(
-                    image: AssetImage('asset/sushi-dinner.jpg'),
+                  image: DecorationImage(
+                    image: AssetImage(recipe.image),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -48,7 +55,7 @@ class RecipeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Ingredients (12)',
+                    'Ingredients (${recipe.ingredientCount})',
                     style: GoogleFonts.roboto(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -83,39 +90,12 @@ class RecipeView extends StatelessWidget {
               const SizedBox(height: 30),
               Expanded(
                 child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
                   child: Column(
-                    children: const [
-                      RecipeList(
-                        ingredientName: 'Matcha',
-                        measurement: '1 teaspoon',
-                        ingredientImage: AssetImage('asset/matcha.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      RecipeList(
-                        ingredientName: 'Matcha',
-                        measurement: '1 teaspoon',
-                        ingredientImage: AssetImage('asset/matcha.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      RecipeList(
-                        ingredientName: 'Matcha',
-                        measurement: '1 teaspoon',
-                        ingredientImage: AssetImage('asset/matcha.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      RecipeList(
-                        ingredientName: 'Matcha',
-                        measurement: '1 teaspoon',
-                        ingredientImage: AssetImage('asset/matcha.jpg'),
-                      ),
-                      SizedBox(height: 10),
-                      RecipeList(
-                        ingredientName: 'Matcha',
-                        measurement: '1 teaspoon',
-                        ingredientImage: AssetImage('asset/matcha.jpg'),
-                      ),
-                      SizedBox(height: 10),
+                    children: [
+                      for (var ingredient in recipe.ingredients)
+                        RecipeList(
+                          ingredient: ingredient,
+                        ),
                     ],
                   ),
                 ),

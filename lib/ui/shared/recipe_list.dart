@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recipe_app/models/ingredients.dart';
 
 class RecipeList extends StatelessWidget {
-  final String ingredientName;
-  final String measurement;
-  final ingredientImage;
-  const RecipeList(
-      {Key? key,
-      required this.ingredientName,
-      required this.measurement,
-      required this.ingredientImage})
-      : super(key: key);
+  final Ingredient ingredient;
+  const RecipeList({
+    Key? key,
+    required this.ingredient,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 10),
       alignment: Alignment.center,
       height: MediaQuery.of(context).size.height / 10,
       decoration: BoxDecoration(
@@ -23,18 +21,18 @@ class RecipeList extends StatelessWidget {
       ),
       child: ListTile(
         leading: Image(
-          image: ingredientImage,
+          image: AssetImage(ingredient.ingredientImage),
           height: 50,
           width: 50,
         ),
         title: Text(
-          ingredientName,
+          ingredient.ingredientName,
           style: GoogleFonts.roboto(
             fontWeight: FontWeight.bold,
           ),
         ),
         trailing: Text(
-          measurement,
+          ingredient.measurement,
           style: const TextStyle(color: Colors.grey),
         ),
       ),

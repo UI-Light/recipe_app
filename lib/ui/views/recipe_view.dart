@@ -28,10 +28,13 @@ class RecipeView extends StatelessWidget {
                     ),
                     color: Colors.grey,
                   ),
-                  Text(
-                    recipe.nameOfFood,
-                    style: GoogleFonts.roboto(
-                        fontWeight: FontWeight.bold, fontSize: 18),
+                  Expanded(
+                    child: Text(
+                      recipe.nameOfFood,
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.roboto(
+                          fontWeight: FontWeight.bold, fontSize: 18),
+                    ),
                   ),
                   const Icon(
                     Icons.more_horiz,

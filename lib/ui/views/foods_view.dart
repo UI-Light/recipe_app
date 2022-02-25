@@ -169,48 +169,6 @@ class _FoodsViewState extends State<FoodsView> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            margin: const EdgeInsets.only(left: 30.0, right: 30.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                IconButton(
-                  onPressed: () {},
-                  iconSize: 25.0,
-                  icon: const Icon(
-                    Icons.home_filled,
-                    color: Colors.grey,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  iconSize: 25.0,
-                  icon: const Icon(
-                    Icons.bookmark,
-                    color: Colors.grey,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  iconSize: 25.0,
-                  icon: const Icon(
-                    Icons.shopping_bag,
-                    color: Colors.grey,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  iconSize: 25.0,
-                  icon: const Icon(
-                    Icons.person,
-                    color: Colors.grey,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
       ),
     );
   }

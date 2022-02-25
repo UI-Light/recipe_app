@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:recipe_app/ui/views/foods_view.dart';
+import 'package:recipe_app/ui/views/index_view.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class HomeView extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FoodsView()),
+                    MaterialPageRoute(builder: (context) => Indexview()),
                   );
                 },
                 child: Container(
